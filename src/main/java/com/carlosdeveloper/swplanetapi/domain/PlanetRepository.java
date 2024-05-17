@@ -1,5 +1,7 @@
 package com.carlosdeveloper.swplanetapi.domain;
 
-public interface PlanetRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface PlanetRepository extends CrudRepository<Planet, Long> {
 
 }
