@@ -1,6 +1,10 @@
 package com.carlosdeveloper.swplanetapi.domain;
 
+import static com.carlosdeveloper.swplanetapi.common.PlanetConstants.INVALID_PLANET;
 import static com.carlosdeveloper.swplanetapi.common.PlanetConstants.PLANET;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
@@ -22,6 +26,14 @@ public class PlanetServiceTest {
     when(planetRepository.save(PLANET)).thenReturn(PLANET);
 
     Planet sut = planetService.create(PLANET);
+
+  }
+
+  @Test
+  public void createPlanet_WithInvalidData_throwsException() {
+    when(planetRepository.save(INVALID_PLANET)).thenThrow(RuntimeException.class);
+
+    assertThatThrownBy(() -> planetService.create(INVALID_PLANET)).isInstanceOf(RuntimeException.class);
 
   }
 
