@@ -1,5 +1,7 @@
 package com.carlosdeveloper.swplanetapi.domain;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
